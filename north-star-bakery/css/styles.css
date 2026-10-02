@@ -1,0 +1,378 @@
+/* ==========================================================================
+   1. CSS Resets & Box Sizing
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
+  color: #2c2523;
+  background-color: #faf8f5;
+}
+
+/* ==========================================================================
+   2. Accessibility: Skip Link
+   ========================================================================== */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #2c2523;
+  color: #ffffff;
+  padding: 8px 16px;
+  z-index: 100;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 0 0 4px 0;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ==========================================================================
+   3. Header, Logo & Navigation
+   ========================================================================== */
+header {
+  background-color: #4a3525;
+  color: #ffffff;
+  padding: 1.25rem 1rem;
+}
+
+.header-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Branding: Logo + Title grouped horizontally */
+.site-branding {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brand-link {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.site-logo {
+  width: 65px;
+  height: auto;
+  display: block;
+}
+
+.branding-text {
+  display: flex;
+  flex-direction: column;
+}
+
+header h1 {
+  color: #ffffff;
+  margin: 0;
+  font-size: 1.9rem;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+
+header .tagline {
+  color: #f3ede2;
+  font-size: 0.9rem;
+  margin-top: 0.2rem;
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: #f3ede2;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a:focus,
+.nav-links a.active {
+  color: #d4a373;
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   4. Main Content Layout & Typography
+   ========================================================================== */
+main {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+section {
+  margin-bottom: 3rem;
+}
+
+h1, h2, h3 {
+  color: #3b2a1e;
+  margin-bottom: 0.75rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+/* ==========================================================================
+   5. Media Elements (Images, Video, Audio)
+   ========================================================================== */
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+}
+
+figure {
+  margin: 1.5rem 0;
+}
+
+figcaption {
+  font-size: 0.9rem;
+  color: #63544c;
+  margin-top: 0.5rem;
+}
+
+audio {
+  width: 100%;
+  max-width: 500px;
+  margin-top: 0.75rem;
+}
+
+.content-img {
+  margin: 1rem 0;
+}
+
+.video-container {
+  margin-top: 2rem;
+}
+
+/* ==========================================================================
+   6. About Us Page Specifics
+   ========================================================================== */
+.baker-profile blockquote {
+  margin: 1.5rem 0;
+  padding: 1rem 1.5rem;
+  border-left: 4px solid #d4a373;
+  background-color: #f3ede2;
+  font-style: italic;
+  color: #4a3525;
+}
+
+.values-list {
+  list-style-type: square;
+  padding-left: 1.5rem;
+  margin-top: 0.75rem;
+}
+
+.values-list li {
+  margin-bottom: 0.5rem;
+}
+
+/* ==========================================================================
+   7. Footer
+   ========================================================================== */
+footer {
+  background-color: #2c2523;
+  color: #d1c7bd;
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+}
+
+footer address {
+  font-style: normal;
+  margin-top: 0.5rem;
+}
+
+/* ==========================================================================
+   8. Responsive Viewports
+   ========================================================================== */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}
+
+/* ==========================================================================
+   9. Contact Us Page Specifics
+   ========================================================================== */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 800px) {
+  .contact-grid {
+    grid-template-columns: 1fr 1.6fr;
+    align-items: start;
+  }
+}
+
+/* Contact Info Panel */
+.contact-info-panel {
+  background-color: #f3ede2;
+  border: 1px solid #e2d6c3;
+  border-radius: 6px;
+  padding: 1.5rem;
+}
+
+.contact-info-panel h3 {
+  border-bottom: 2px solid #d4a373;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.info-block {
+  margin-bottom: 1.25rem;
+}
+
+.info-block h4 {
+  color: #4a3525;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.info-block address {
+  font-style: normal;
+  line-height: 1.5;
+}
+
+.info-block a {
+  color: #4a3525;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.info-block a:hover,
+.info-block a:focus {
+  color: #a46f3a;
+}
+
+.hours-list {
+  list-style: none;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* Form Styles */
+.contact-form fieldset {
+  border: 1px solid #dcd4c7;
+  border-radius: 6px;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+  background-color: #ffffff;
+}
+
+.contact-form legend {
+  font-weight: 600;
+  color: #4a3525;
+  padding: 0 0.5rem;
+  font-size: 1.05rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.form-group:last-child {
+  margin-bottom: 0;
+}
+
+.form-group label {
+  font-weight: 500;
+  margin-bottom: 0.35rem;
+  color: #3b2a1e;
+}
+
+.required {
+  color: #b33927;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  border: 1px solid #c2b5a5;
+  border-radius: 4px;
+  background-color: #faf8f5;
+  color: #2c2523;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #a46f3a;
+  box-shadow: 0 0 0 3px rgba(212, 163, 115, 0.3);
+  background-color: #ffffff;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+/* Submit Button */
+.form-actions {
+  margin-top: 1rem;
+}
+
+.submit-btn {
+  background-color: #4a3525;
+  color: #ffffff;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.submit-btn:hover {
+  background-color: #38271a;
+}
+
+.submit-btn:focus {
+  outline: 2px solid #a46f3a;
+  outline-offset: 2px;
+}
+
+.submit-btn:active {
+  transform: translateY(1px);
+}
