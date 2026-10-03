@@ -34,14 +34,14 @@ statusDot.className = "status-indicator";
    return;
  }
     
-    if (currentTime >= todayConfig.open && currentTime < todayConfig.close) {
-    statusDot.classList.add("dot-open");
-    statusHeadline.textContent = "Storefront Open Now";
+  if (currentTime >= todayConfig.open && currentTime < todayConfig.close) {
+  statusDot.classList.add("dot-open");
+  statusHeadline.textContent = "Storefront Open Now";
       
-      const closingHour = Math.floor(todayConfig.close);
-      const formattedClose = closingHour > 12 ? `${closingHour - 12}:00 PM` : `${closingHour}:00 AM`;
-      statusSubtext.textContent = `Fresh bread and pastries are on the shelves until ${formattedClose} today.`;
-    } 
+  const closingHour = Math.floor(todayConfig.close);
+  const formattedClose = closingHour > 12 ? `${closingHour - 12}:00 PM` : `${closingHour}:00 AM`;
+  statusSubtext.textContent = `Fresh bread and pastries are on the shelves until ${formattedClose} today.`;
+ } 
     
     else if (currentTime >= todayConfig.bakeStart && currentTime < todayConfig.open) {
      statusDot.classList.add("dot-baking");
@@ -53,14 +53,14 @@ statusDot.className = "status-indicator";
     statusSubtext.textContent = `The hearth is hot and the first loaves are proofing! Doors open at ${formattedOpen}.`;
     } 
     
-    else {
-      statusDot.classList.add("dot-closed");
-      statusHeadline.textContent = "Currently Closed";
-      
-      if (currentTime >= todayConfig.close) {
-        statusSubtext.textContent = "We are sold out for today. Stop by tomorrow morning for fresh loaves!";
-      } else {
-        statusSubtext.textContent = "Our bakers arrive before dawn. Check back early for fresh bakes.";
+   else {
+    statusDot.classList.add("dot-closed");
+    statusHeadline.textContent = "Currently Closed";
+     
+   if (currentTime >= todayConfig.close) {
+    statusSubtext.textContent = "We are sold out for today. Stop by tomorrow morning for fresh loaves!";
+   } else {
+   statusSubtext.textContent = "Our bakers arrive before dawn. Check back early for fresh bakes.";
       }
     }
   }
