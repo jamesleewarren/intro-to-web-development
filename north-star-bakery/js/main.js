@@ -1,16 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
   const statusWidget = document.getElementById("bakery-status-widget");
 
-  // Only run this if the status widget is on the page
   if (!statusWidget) return;
 
   const statusDot = document.getElementById("status-dot");
   const statusHeadline = document.getElementById("status-headline");
   const statusSubtext = document.getElementById("status-subtext");
 
-  // Bakery operating hours configuration:
-  // Sunday (0), Monday (1), Tuesday (2), Wednesday (3), Thursday (4), Friday (5), Saturday (6)
-  // Hours represented in fractional 24-hr time (e.g. 6.5 = 6:30 AM, 15 = 3:00 PM)
   const schedule = {
     0: { open: 7.0, close: 14.0, name: "Sunday", bakeStart: 4.5 },
     1: { open: null, close: null, name: "Monday", bakeStart: null }, // Closed Mondays
@@ -33,15 +29,14 @@ document.addEventListener("DOMContentLoaded", function () {
     
     statusDot.className = "status-indicator";
 
-    // Scenario A: Closed all day (Monday)
-    if (todayConfig.open === null) {
+      if (todayConfig.open === null) {
       statusDot.classList.add("dot-closed");
       statusHeadline.textContent = "Closed Today (Hearth Maintenance)";
       statusSubtext.textContent = "Our ovens rest on Mondays to feed the starters. We reopen Tuesday at 6:30 AM.";
       return;
     }
 
-    // Scenario B: Doors are currently Open
+    
     if (currentTime >= todayConfig.open && currentTime < todayConfig.close) {
       statusDot.classList.add("dot-open");
       statusHeadline.textContent = "Storefront Open Now";
@@ -50,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const formattedClose = closingHour > 12 ? `${closingHour - 12}:00 PM` : `${closingHour}:00 AM`;
       statusSubtext.textContent = `Fresh bread and pastries are on the shelves until ${formattedClose} today.`;
     } 
-    // Scenario C: Early morning pre-bake window (kitchen working, doors not yet open)
+    
     else if (currentTime >= todayConfig.bakeStart && currentTime < todayConfig.open) {
       statusDot.classList.add("dot-baking");
       statusHeadline.textContent = "Baking in Progress";
@@ -60,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const formattedOpen = `${openHour}:${openMin === 0 ? "00" : openMin} AM`;
       statusSubtext.textContent = `The hearth is hot and the first loaves are proofing! Doors open at ${formattedOpen}.`;
     } 
-    // Scenario D: Closed for the day
+    
     else {
       statusDot.classList.add("dot-closed");
       statusHeadline.textContent = "Currently Closed";
@@ -73,9 +68,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Initial status check
+  
   updateBakeryStatus();
 
-  // Refresh status every 60 seconds so the badge updates live without reloading
+  
   setInterval(updateBakeryStatus, 60000);
 });
